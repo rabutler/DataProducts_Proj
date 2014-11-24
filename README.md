@@ -1,0 +1,3 @@
+- Project for Coursera Developing Data Products class
+- Demonstrates interactive plotting for plots typically used at work using Shiny
+- Will include presentation
