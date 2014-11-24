@@ -9,16 +9,11 @@ plotRisk <- function(X, scen, slot, res,month,thresh, yy1, yy2)
   X <- X[X$Reservoir %in% res & X$Year %in% yy1:yy2 & X$Scenario %in% scen,]  
   X <- X[X$Variable == slot,]
   X <- X[X$Month == month,]
-  tst <- function(xx)
-  {
-    xx <= tt
-  }
-browser()
-  X <- ddply(X,.(Scenario,Trace,Year,Reservoir),summarize, vv = tst(Value))
-  X
-  #X <- ddply(X,.(Scenario,Year,Reservoir),summarize,Value = mean(vv) * 100)
+  X$Thresh <- thresh
+  X <- ddply(X,.(Scenario,Trace,Year,Reservoir),summarize, vv = Value <= Thresh)
+  X <- ddply(X,.(Scenario,Year,Reservoir),summarize,Value = mean(vv) * 100)
   
-  #gg <- ggplot(X, aes(Year, Value, color = Scenario)) + geom_line(size=1)
+  gg <- ggplot(X, aes(Year, Value, color = Scenario)) + geom_line(size=1)
   
-  #gg
+  gg
 }

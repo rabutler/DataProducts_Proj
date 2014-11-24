@@ -24,13 +24,13 @@ shinyUI(pageWithSidebar(
                 selected = 'Bronco'),
     radioButtons('var','Variable:',choices = c('Pool Elevation' = 'Pool Elevation',
                 'Storage' = 'Storage'), selected = 'Pool Elevation'),
-    radioButtons('month','Select the Month:',
+    selectInput('month','Select the Month:',
                  choices = c('January' = 'Jan', 'February' = 'Feb',
                  'March' = 'Mar','April' = 'Apr', 'May' = 'May', 'June' = 'Jun',
                  'July' = 'Jul', 'August'='Aug','September' = 'Sep', 
                  'October' = 'Oct','November' = 'Nov','December' = 'Dec'),
                  selected = 'Dec'),
-    numericInput('thresh','Threshold:',1100,0,4000),
+    numericInput('thresh','Threshold:',1100),
     sliderInput('firstYear','First Year:',2015,2019,value = 2015, step = 1,
                 format = '####'),
     sliderInput('lastYear','Last Year:',2015,2019,value = 2019,step = 1,
@@ -39,7 +39,6 @@ shinyUI(pageWithSidebar(
   
   # Show a plot of the generated distribution
   mainPanel(
-    plotOutput("elevRisk"),
-    h3('You enterred:'), verbatimTextOutput('threshInput')
+    plotOutput("elevRisk")
   )
 ))
