@@ -32,9 +32,7 @@ shinyUI(pageWithSidebar(
                  'Max Annual' = 'MaxAnn','Min Annual' = 'MinAnn'),
                  selected = 'Dec'),
     numericInput('thresh','Threshold:',1100),
-    sliderInput('firstYear','First Year:',2015,2019,value = 2015, step = 1,
-                format = '####'),
-    sliderInput('lastYear','Last Year:',2015,2019,value = 2019,step = 1,
+    sliderInput('firstYear','Select Years:',2015,2019,value = c(2015,2019), step = 1,
                 format = '####')
   ),
   

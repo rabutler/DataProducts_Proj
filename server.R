@@ -23,7 +23,7 @@ shinyServer(function(input, output) {
     
     X <- read.table('trimData.txt',header = T)
     G <- plotRisk(X, input$scen, input$var, input$res,input$month,input$thresh,
-                  input$firstYear,input$lastYear)
+                  input$firstYear)
     G
   })  
   
