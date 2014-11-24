@@ -8,7 +8,13 @@ plotRisk <- function(X, scen, slot, res,month,thresh, yy1, yy2)
   tt <- thresh  
   X <- X[X$Reservoir %in% res & X$Year %in% yy1:yy2 & X$Scenario %in% scen,]  
   X <- X[X$Variable == slot,]
-  X <- X[X$Month == month,]
+  if(month == 'MinAnn'){
+    X <- ddply(X, .(Scenario,Trace,Year,Reservoir),summarize, Value = min(Value))
+  } else if(month == 'MaxAnn'){
+    X <- ddply(X, .(Scenario,Trace,Year,Reservoir),summarize, Value = max(Value))       
+  } else{
+    X <- X[X$Month == month,]
+  }
   X$Thresh <- thresh
   X <- ddply(X,.(Scenario,Trace,Year,Reservoir),summarize, vv = Value <= Thresh)
   X <- ddply(X,.(Scenario,Year,Reservoir),summarize,Value = mean(vv) * 100)
