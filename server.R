@@ -25,6 +25,7 @@ shinyServer(function(input, output) {
     G <- plotRisk(X, input$scen, input$var, input$res,input$month,input$thresh,
                   input$firstYear)
     G
-  })  
+  })
+  output$summary <- renderPrint({'ok'})
   
 })

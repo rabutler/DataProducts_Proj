@@ -6,38 +6,48 @@
 #
 
 library(shiny)
+library(markdown)
 source('plotSubset.R')
 
-shinyUI(pageWithSidebar(
+shinyUI(navbarPage('Reservoir Conditions',
   
-  # Application title
-  headerPanel("Sample Elevation Plot"),
-  
-  # Sidebar with a slider input for number of bins
-  sidebarPanel(
-    checkboxGroupInput('scen','Scenarios:',choices = c('Baseline' = 'Baseline',
-                       'Scenario A'='Scenario A'), selected = 'Baseline'),
-    radioButtons("res",
-                "Select the reservoir:",
-                choices = c('Bronco Reservoir' = 'Bronco', 
-                'Deep Snow Lake'= 'Deep Snow'),
-                selected = 'Bronco'),
-    radioButtons('var','Variable:',choices = c('Pool Elevation' = 'Pool Elevation',
-                'Storage' = 'Storage'), selected = 'Pool Elevation'),
-    selectInput('month','Select the Month:',
-                 choices = c('January' = 'Jan', 'February' = 'Feb',
-                 'March' = 'Mar','April' = 'Apr', 'May' = 'May', 'June' = 'Jun',
-                 'July' = 'Jul', 'August'='Aug','September' = 'Sep', 
-                 'October' = 'Oct','November' = 'Nov','December' = 'Dec',
-                 'Max Annual' = 'MaxAnn','Min Annual' = 'MinAnn'),
-                 selected = 'Dec'),
-    numericInput('thresh','Threshold:',1100),
-    sliderInput('firstYear','Select Years:',2015,2019,value = c(2015,2019), step = 1,
-                format = '####')
+  tabPanel("Instructions",
+    fluidRow(column(6,includeMarkdown('instructions.md')))
   ),
+  # Threshold Risks Panel
+  tabPanel("Threshold Risks",
   
-  # Show a plot of the generated distribution
-  mainPanel(
-    plotOutput("elevRisk")
+    # Sidebar with a slider input for number of bins
+    sidebarLayout(
+      sidebarPanel(
+        checkboxGroupInput('scen','Scenarios:',choices = c('Baseline' = 'Baseline',
+                           'Scenario A'='Scenario A'), selected = 'Baseline'),
+        radioButtons("res",
+                    "Select the reservoir:",
+                    choices = c('Bronco Reservoir' = 'Bronco', 
+                    'Deep Snow Lake'= 'Deep Snow'),
+                    selected = 'Bronco'),
+        radioButtons('var','Variable:',choices = c('Pool Elevation' = 'Pool Elevation',
+                    'Storage' = 'Storage'), selected = 'Pool Elevation'),
+        selectInput('month','Select the Month:',
+                     choices = c('January' = 'Jan', 'February' = 'Feb',
+                     'March' = 'Mar','April' = 'Apr', 'May' = 'May', 'June' = 'Jun',
+                     'July' = 'Jul', 'August'='Aug','September' = 'Sep', 
+                     'October' = 'Oct','November' = 'Nov','December' = 'Dec',
+                     'Max Annual' = 'MaxAnn','Min Annual' = 'MinAnn'),
+                     selected = 'Dec'),
+        numericInput('thresh','Threshold:',1100),
+        sliderInput('firstYear','Select Years:',2015,2019,value = c(2015,2019), step = 1,
+                    format = '####')
+      ),
+    
+    # Show a plot of the generated distribution
+      mainPanel(
+        plotOutput("elevRisk")
+      )
+    )
+  ),
+  tabPanel("Summary",
+    verbatimTextOutput("summary")
   )
 ))
