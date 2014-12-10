@@ -9,7 +9,7 @@ Want to include as example:
 - two tabs:
 	-- tab1 = decile plots of monthly data
 	-- tab2 = risk calculations
-	-- tab3 = individual trace plots (OPTIONAL)
+
 Tab 1
 - select which months with radio button
 - select Scenarios with check boxes
@@ -21,10 +21,17 @@ Tab 1
 - update y axis label and title based on the selected slot
 
 Tab 2
-- select scenarios as check boxes	
-	-- show combined scenario risk?
-- select Powell or Mead as radio button
-- select month, annual max, or annual min
-- enter the elevation
-- plot % of traces/year as line plot
+- select scenarios as check boxes 
+	-- Done, but add in the dynamic adding scenarios.
+- select Powell or Mead as radio button DONE
+- select month, annual max, or annual min DONE 
+- enter the elevation DONE 
+- plot % of traces/year as line plot DONE
 - display total % of traces in time period in table or on plot?
+
+To fill selectInput with variable names, use the following as an example:
+http://stackoverflow.com/questions/16173325/r-shiny-interactively-change-the-selectinput-choices
+Think that we can modify the searchResult in the example to use 
+levels(zz$Variable).
+Try this out on the Scenario selection of tab2.
+
