@@ -20,8 +20,9 @@ shinyUI(navbarPage('Reservoir Conditions',
     # Sidebar with a slider input for number of bins
     sidebarLayout(
       sidebarPanel(
-        checkboxGroupInput('scen','Scenarios:',choices = c('Baseline' = 'Baseline',
-                           'Scenario A'='Scenario A'), selected = 'Baseline'),
+        #checkboxGroupInput('scen','Scenarios:',choices = c('Baseline' = 'Baseline',
+         #                 'Scenario A'='Scenario A'), selected = 'Baseline'),
+        htmlOutput('selectScenario'),
         radioButtons("res",
                     "Select the reservoir:",
                     choices = c('Bronco Reservoir' = 'Bronco', 

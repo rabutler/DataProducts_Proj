@@ -11,21 +11,24 @@ library(plyr)
 #source(plotSubset.R)
 
 shinyServer(function(input, output) {
-   
+  
+  listScenarios <- reactive({
+    levels(XX()$Scenario)
+  })
+  
+  XX <- reactive({readMyTable()})
+  
   output$elevRisk <- renderPlot({
     
-    # generate bins based on input$bins from ui.R
-    #x    <- faithful[, 2] 
-    #bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    #hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
-    X <- read.table('trimData.txt',header = T)
+    X <- XX()
     G <- plotRisk(X, input$scen, input$var, input$res,input$month,input$thresh,
                   input$firstYear)
     G
   })
   output$summary <- renderPrint({'ok'})
+  
+  output$selectScenario <- renderUI({
+    checkboxGroupInput("scen", "Scenarios:", listScenarios(), selected = listScenarios()[1])
+  })
   
 })
