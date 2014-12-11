@@ -13,3 +13,6 @@ output: html_document
 1. Do even more
 
 ## Assumptions
+
+## Future Work
+* Make most sliders, etc. reactive to the input data set

@@ -11,14 +11,14 @@ Want to include as example:
 	-- tab2 = risk calculations
 
 Tab 1
-- select which months with radio button
-- select Scenarios with check boxes
-- select which percentiles you want  
+- select which months with radio button DONE
+- select Scenarios with check boxes DONE
+- select which percentiles you want  DONE
 	-- check boxes for max through all deciles to min
 - select the slot to plot
-	-- PE
-	-- Storage
-- update y axis label and title based on the selected slot
+	-- PE DONE
+	-- Storage DONE
+- update y axis label and title based on the selected slot DONE
 
 Tab 2
 - select scenarios as check boxes DONE

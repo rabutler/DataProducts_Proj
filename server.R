@@ -45,10 +45,34 @@ shinyServer(function(input, output) {
     riskResults()$table
   },include.rownames = FALSE)
   
+  output$prctPlotTitle <- renderText({
+    if(length(input$res1)==2){
+      resTitle <- 'Bronco Reservoir and Deep Snow Lake'
+    } else{
+      resTitle <- switch(input$res1,'Bronco' = 'Bronco Reservoir','Deep Snow' = 'Deep Snow Lake')
+    }
+    paste(resTitle,
+          switch(input$month1,'Jan'='January', 'Feb'='February',
+                 'Mar'='March','Apr'='April', 'May' = 'May', 'Jun'='June',
+                 'Jul'='July', 'Aug'='August','Sep'='September', 
+                 'Oct'='October','Nov'='November', 'Dec'='December',
+                 'MaxAnn'='Annual Maximum','MinAnn'='Annual Minimum'),
+          input$var1)
+  })
+  
+  output$prctPlot <- renderPlot({
+    plotPercentiles(XX(),input$scen1, input$var1, input$res1,input$month1,input$quant,
+                    input$firstYear1)
+  })
+  
   output$summary <- renderPrint({'ok'})
   
   output$selectScenario <- renderUI({
     checkboxGroupInput("scen", "Scenarios:", listScenarios(), selected = listScenarios()[1])
+  })
+  
+  output$selectScenario1 <- renderUI({
+    checkboxGroupInput("scen1", "Scenarios:", listScenarios(), selected = listScenarios()[1])
   })
   
 })
