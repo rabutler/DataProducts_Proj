@@ -21,15 +21,15 @@ shinyUI(navbarPage('Reservoir Conditions',
      sidebarLayout(
        sidebarPanel(
          # automatically update the scenarios selection based on the scenarios existing in the data
-         htmlOutput('selectScenario1'),
-         checkboxGroupInput("res1",
+         htmlOutput('selectScenarioA'),
+         checkboxGroupInput("resA",
                       "Select the reservoir:",
                       choices = c('Bronco Reservoir' = 'Bronco', 
                                   'Deep Snow Lake'= 'Deep Snow'),
                       selected = 'Bronco'),
-         radioButtons('var1','Variable:',choices = c('Pool Elevation' = 'Pool Elevation',
+         radioButtons('varA','Variable:',choices = c('Pool Elevation' = 'Pool Elevation',
                                                     'Storage' = 'Storage'), selected = 'Pool Elevation'),
-         selectInput('month1','Select the Month:',
+         selectInput('monthA','Select the Month:',
                      choices = c('January' = 'Jan', 'February' = 'Feb',
                                  'March' = 'Mar','April' = 'Apr', 'May' = 'May', 'June' = 'Jun',
                                  'July' = 'Jul', 'August'='Aug','September' = 'Sep', 
@@ -39,7 +39,7 @@ shinyUI(navbarPage('Reservoir Conditions',
          checkboxGroupInput('quant','Percentiles:',choice = c('Min' = 0, '10%' = .1, '20%' = .2, 
                             '30%' = .3, '40%' = .4, '50%' = .5, '60%' = .6, '70%' = .7,
                             '80%' = .8, '90%' = .9, 'Max' = 1), selected = c(.1,.5,.9)),
-         sliderInput('firstYear1','Select Years:',2015,2019,value = c(2015,2019), step = 1,
+         sliderInput('firstYearA','Select Years:',2015,2019,value = c(2015,2019), step = 1,
                      format = '####')
        ),
        
