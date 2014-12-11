@@ -21,13 +21,13 @@ Tab 1
 - update y axis label and title based on the selected slot
 
 Tab 2
-- select scenarios as check boxes 
-	-- Done, but add in the dynamic adding scenarios.
+- select scenarios as check boxes DONE
+	-- Done, but add in the dynamic adding scenarios. DONE
 - select Powell or Mead as radio button DONE
 - select month, annual max, or annual min DONE 
 - enter the elevation DONE 
 - plot % of traces/year as line plot DONE
-- display total % of traces in time period in table or on plot?
+- display total % of traces in time period in table or on plot? DONE
 
 To fill selectInput with variable names, use the following as an example:
 http://stackoverflow.com/questions/16173325/r-shiny-interactively-change-the-selectinput-choices

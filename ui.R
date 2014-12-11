@@ -44,7 +44,10 @@ shinyUI(navbarPage('Reservoir Conditions',
     
     # Show a plot of the generated distribution
       mainPanel(
-        plotOutput("elevRisk")
+        h4(textOutput('plotTitle')),
+        plotOutput("elevRisk"),
+        h5(textOutput('tableTitle')),
+        tableOutput('prctTracesTable')
       )
     )
   ),

@@ -28,10 +28,15 @@ plotRisk <- function(X, scen, slot, res,month,thresh, yy)
     }
     X$Thresh <- thresh
     X <- ddply(X,.(Scenario,Trace,Year,Reservoir),summarize, vv = Value <= Thresh)
+    xx <- ddply(X,.(Scenario,Trace,Reservoir),summarize,tt = max(vv))
+    xx <- ddply(xx,.(Scenario,Reservoir),summarize,'Percent of Traces [%]' = mean(tt)*100)
     X <- ddply(X,.(Scenario,Year,Reservoir),summarize,Value = mean(vv) * 100)
     
     gg <- ggplot(X, aes(Year, Value, color = Scenario)) + geom_line(size=1)
     
-    gg
+    rr <- list()
+    rr$plot <- gg
+    rr$table <- xx
+    rr
   }
 }
