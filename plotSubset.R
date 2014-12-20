@@ -1,5 +1,4 @@
 library(reshape2)
-library(rCharts)
 
 readMyTable <- function()
 {
