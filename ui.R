@@ -12,7 +12,7 @@ source('plotSubset.R')
 shinyUI(navbarPage('Reservoir Conditions',
   
   tabPanel("Instructions",
-    fluidRow(column(6,includeMarkdown('instructions.md')))
+    fluidRow(column(9,includeMarkdown('instructions.md')))
   ),
   
   tabPanel("Percentile Plot",
