@@ -11,11 +11,14 @@ In water resources management, and likely in other applications, simulation mode
 
 In this example, the levels of two hypothetical reservoirs are compared. The levels can be compared in terms of the storage, i.e., volume of water the reservoirs contain, or the elevations of the reservoirs. The elevations/storages are important for water supply issues, that is, users (for example cities) that rely on the water stored in the reservoirs are interested in knowing how full (or empty) the reservoirs may be in the future.
 
-This example provides several alternatives, which are commonly used in the water resources industry, for different ways to compare the different reservoir elevations/storages over the next 12 years for two reservoirs. In this example, the scenarios are hypothetical, but in reality they could be comparing different management actions, differenty hydrologic assumptions, or different water demand assumptions. 
+This example provides several alternatives, which are commonly used in the water resources industry, for different ways to compare the different reservoir elevations/storages over the next 10 years for two reservoirs. In this example, the scenarios are hypothetical, but in reality they could be comparing different management actions, differenty hydrologic assumptions, or different water demand assumptions. 
 
 Results are reported as "percent of traces". Each "trace" is a single unique simulation for one particular scenario. Reporting percent of traces makes it appropriate to compare scenarios with a different number of simulations, and this can commonly be though of as the probability of an event occurring. 
 
 ## Instructions
+
+#### <span style='color:red'>Please alow aproximately 30 seconds for the data to initially load after clicking to the first plot page.</span>
+
 ### Percentile Plot page
 1. Familiarize yourself with the range of storage and elevations for the two reservoirs by looking at different percentiles.
 1. Select which scenarios you want to compare, the reservoirs, and the month to compare elevations for. The annual minimum elevation or annual maximum elevation can be selected rather than looking at a specific month. 
