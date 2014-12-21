@@ -74,10 +74,10 @@ shinyServer(function(input, output) {
   })
   
   output$validRanges <- renderText({
-    tMin <- switch(input$var, 'Storage' = switch(input$res, 'Bronco' = 1, 'Deep Snow' = 2),
-                   'Pool Elevation' = switch(input$res, 'Bronco' = 3, 'Deep Snow' = 4))
-    tMax <- switch(input$var, 'Storage' = switch(input$res, 'Bronco' = 1, 'Deep Snow' = 2),
-                   'Pool Elevation' = switch(input$res, 'Bronco' = 3, 'Deep Snow' = 4))
+    tMin <- switch(input$var, 'Storage' = switch(input$res, 'Bronco' = 0, 'Deep Snow' = 0),
+                   'Pool Elevation' = switch(input$res, 'Bronco' = 895, 'Deep Snow' = 3370))
+    tMax <- switch(input$var, 'Storage' = switch(input$res, 'Bronco' = 27620000, 'Deep Snow' = 26225000),
+                   'Pool Elevation' = switch(input$res, 'Bronco' = 1229, 'Deep Snow' = 3711))
     uu <- switch(input$var, 'Storage' = 'acre-ft', 'Pool Elevation' = 'feet')
     paste('The threshold should range between', tMin, 'and', tMax, uu, 'for', input$res, input$var)
   })
