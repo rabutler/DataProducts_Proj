@@ -2,7 +2,7 @@ library(reshape2)
 
 readMyTable <- function()
 {
-  X <- read.table('trimData.txt',header = T)
+  X <- read.table('fullData.txt',header = T)
   X
 }
 
@@ -34,7 +34,10 @@ plotPercentiles <- function(X, scen, slot, res, month, qq, yy)
       uu <- '[million acre-ft]'
     }
     gg <- ggplot(X, aes(Year, value, color = Percentile, linetype = Scenario)) + geom_line(size=1) +
-        ff + ylab(uu)
+        ff + ylab(uu) + 
+          scale_x_continuous(minor_breaks = 1990:3000, breaks = 1990:3000) + 
+          theme(panel.grid.minor = element_line(color = 'white', size = .6),
+            panel.grid.major = element_line(color = 'white', size = .6))
    
    gg
   }
@@ -67,7 +70,11 @@ plotRisk <- function(X, scen, slot, res,month,thresh, yy)
     xx <- ddply(xx,.(Scenario,Reservoir),summarize,'Percent of Traces [%]' = mean(tt)*100)
     X <- ddply(X,.(Scenario,Year,Reservoir),summarize,Value = mean(vv) * 100)
     
-    gg <- ggplot(X, aes(Year, Value, color = Scenario)) + geom_line(size=1) + ylab('[%]')
+    gg <- ggplot(X, aes(Year, Value, color = Scenario)) + geom_line(size=1) +
+      ylab('[%]') +
+      scale_x_continuous(minor_breaks = 1990:3000, breaks = 1990:3000) + 
+      theme(panel.grid.minor = element_line(color = 'white', size = .6),
+        panel.grid.major = element_line(color = 'white', size = .6))
     
     rr <- list()
     rr$plot <- gg

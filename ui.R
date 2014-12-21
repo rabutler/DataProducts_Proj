@@ -39,7 +39,7 @@ shinyUI(navbarPage('Reservoir Conditions',
          checkboxGroupInput('quant','Percentiles:',choice = c('Min' = 0, '10%' = .1, '20%' = .2, 
                             '30%' = .3, '40%' = .4, '50%' = .5, '60%' = .6, '70%' = .7,
                             '80%' = .8, '90%' = .9, 'Max' = 1), selected = c(.1,.5,.9)),
-         sliderInput('firstYearA','Select Years:',2015,2019,value = c(2015,2019), step = 1,
+         sliderInput('firstYearA','Select Years:',2015,2024,value = c(2015,2024), step = 1,
                      format = '####')
        ),
        
@@ -75,7 +75,7 @@ shinyUI(navbarPage('Reservoir Conditions',
                      'Max Annual' = 'MaxAnn','Min Annual' = 'MinAnn'),
                      selected = 'Dec'),
         numericInput('thresh','Threshold:',1100),
-        sliderInput('firstYear','Select Years:',2015,2019,value = c(2015,2019), step = 1,
+        sliderInput('firstYear','Select Years:',2015,2024,value = c(2015,2024), step = 1,
                     format = '####')
       ),
     
