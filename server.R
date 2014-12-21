@@ -65,14 +65,21 @@ shinyServer(function(input, output) {
                     input$firstYearA)
   })
   
-  output$summary <- renderPrint({'ok'})
-  
   output$selectScenario <- renderUI({
     checkboxGroupInput("scen", "Scenarios:", listScenarios(), selected = listScenarios()[1])
   })
   
   output$selectScenarioA <- renderUI({
     checkboxGroupInput("scenA", "Scenarios:", listScenarios(), selected = listScenarios()[1])
+  })
+  
+  output$validRanges <- renderText({
+    tMin <- switch(input$var, 'Storage' = switch(input$res, 'Bronco' = 1, 'Deep Snow' = 2),
+                   'Pool Elevation' = switch(input$res, 'Bronco' = 3, 'Deep Snow' = 4))
+    tMax <- switch(input$var, 'Storage' = switch(input$res, 'Bronco' = 1, 'Deep Snow' = 2),
+                   'Pool Elevation' = switch(input$res, 'Bronco' = 3, 'Deep Snow' = 4))
+    uu <- switch(input$var, 'Storage' = 'acre-ft', 'Pool Elevation' = 'feet')
+    paste('The threshold should range between', tMin, 'and', tMax, uu, 'for', input$res, input$var)
   })
   
 })

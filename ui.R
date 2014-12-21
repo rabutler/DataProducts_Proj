@@ -84,11 +84,9 @@ shinyUI(navbarPage('Reservoir Conditions',
         h4(textOutput('plotTitle')),
         plotOutput("elevRisk"),
         h5(textOutput('tableTitle')),
-        tableOutput('prctTracesTable')
+        tableOutput('prctTracesTable'),
+        div(textOutput('validRanges'),style = 'color:red')
       )
     )
-  ),
-  tabPanel("Summary",
-    verbatimTextOutput("summary")
   )
 ))
