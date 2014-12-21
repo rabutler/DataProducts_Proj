@@ -17,11 +17,13 @@ Results are reported as "percent of traces". Each "trace" is a single unique sim
 
 ## Instructions
 ### Percentile Plot page
-1. Do stuff
-1. Do more
-1. Do even more stuff
+1. Familiarize yourself with the range of storage and elevations for the two reservoirs by looking at different percentiles.
+1. Select which scenarios you want to compare, the reservoirs, and the month to compare elevations for. The annual minimum elevation or annual maximum elevation can be selected rather than looking at a specific month. 
+1. Select the percentiles and finally the years.
 
 ### Threshold Risks page
+
+The thresholds risks page displays (1) the chances of a reeservoir falling below a given threshold in each year (plot) and (2) the percent of traces that fall below the threshold anytime during the time window (table). These types of figures are commonly used to understand the particular risk of reaching important reservoir elevations. Any threshold can be entered, but only certain ranges of numbers are applicable for each reservoir, depending on which variable is selected. These ranges are noted on the plot page.
 
 ## Future Work
 
